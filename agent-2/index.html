@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Process Mapping Agent · UKI Banking Reinvented: Agentic AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #A100FF;
+      --purple-mid: #6600cc;
+      --purple-dark: #2d0060;
+      --bg: #0d0018;
+      --accent: #e040fb;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(161,0,255,0.25);
+      --text: #f0e6ff;
+      --muted: rgba(240,230,255,0.55);
+      --light-text: #1a0033;
+      --light-muted: #5a4a6a;
+      --light-subtle: #9980b0;
+      --light-border: #e8e0f0;
+    }
+
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); font-weight: 400; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .topnav { background: rgba(13,0,24,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+    .topnav-inner { max-width: 1100px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+    .back-link svg { width: 16px; height: 16px; }
+    .nav-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+
+    /* HERO */
+    .page-hero { background: linear-gradient(135deg, #0d0018 0%, var(--purple-dark) 60%, #1a0033 100%); border-bottom: 1px solid var(--border); padding: 3.5rem 2rem; text-align: center; }
+    .page-hero .tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .page-hero h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--accent); }
+    .page-hero p { font-size: 0.95rem; color: var(--muted); font-weight: 200; max-width: 660px; margin: 0 auto 1.5rem; }
+    .hero-chips { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .chip { background: rgba(161,0,255,0.15); border: 1px solid rgba(161,0,255,0.35); border-radius: 50px; padding: 0.3rem 0.9rem; font-size: 0.75rem; color: var(--text); display: inline-flex; align-items: center; gap: 0.4rem; }
+    .chip svg { width: 13px; height: 13px; stroke: var(--accent); }
+
+    /* SECTIONS */
+    .section-light { background: #ffffff; color: var(--light-text); width: 100%; padding: 3.5rem 0; }
+    .section-light + .section-light { border-top: 1px solid #f0e8ff; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12rem; margin-bottom: 0.6rem; }
+    .section-light .section-label { color: var(--purple); }
+    .section-dark-label { color: var(--accent); }
+    .section-light h2 { color: var(--light-text); font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .lead { font-size: 0.9rem; font-weight: 200; max-width: 720px; margin-bottom: 2rem; }
+    .section-light .lead { color: var(--light-muted); }
+    .dark-lead { color: var(--muted); }
+
+    /* CAPABILITY CARDS */
+    .capabilities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    .cap-card { background: #f8f4ff; border: 1px solid var(--light-border); border-radius: 8px; padding: 1.25rem; }
+    .cap-card .cap-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--purple-mid), var(--purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
+    .cap-card .cap-icon svg { width: 18px; height: 18px; stroke: #fff; }
+    .cap-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--light-text); margin-bottom: 0.35rem; }
+    .cap-card p { font-size: 0.78rem; color: var(--light-muted); line-height: 1.55; }
+
+    /* OUTPUT FORMAT CARDS */
+    .output-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    .output-card { background: #f8f4ff; border: 2px solid var(--light-border); border-radius: 10px; padding: 1.5rem; transition: border-color 0.2s; }
+    .output-card:hover { border-color: var(--purple); }
+    .output-card .out-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; color: var(--purple); margin-bottom: 0.6rem; }
+    .output-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--light-text); margin-bottom: 0.4rem; }
+    .output-card p { font-size: 0.78rem; color: var(--light-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+    .output-card .out-example { background: #fff; border: 1px solid var(--light-border); border-radius: 6px; padding: 0.6rem 0.8rem; font-size: 0.72rem; font-family: monospace; color: var(--purple-mid); line-height: 1.5; }
+
+    /* INPUT TYPES */
+    .input-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .input-card { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem; text-align: center; }
+    .input-card svg { width: 28px; height: 28px; stroke: var(--accent); margin-bottom: 0.6rem; }
+    .input-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .input-card p { font-size: 0.73rem; color: var(--muted); line-height: 1.5; }
+
+    /* VIDEO */
+    .video-placeholder { background: #f8f4ff; border: 2px dashed rgba(161,0,255,0.25); border-radius: 10px; height: 360px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; color: var(--light-muted); margin-bottom: 2rem; }
+    .video-placeholder svg { width: 52px; height: 52px; opacity: 0.3; stroke: var(--purple); }
+    .video-placeholder p { font-size: 0.9rem; color: var(--light-muted); font-weight: 700; }
+    .video-placeholder span { font-size: 0.75rem; opacity: 0.5; }
+
+    /* IMAGE PLACEHOLDERS */
+    .img-placeholder { background: #f8f4ff; border: 2px dashed rgba(161,0,255,0.2); border-radius: 8px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; }
+    .img-placeholder span { font-size: 0.72rem; color: var(--light-subtle); }
+
+    /* PROMPT SECTION */
+    .prompt-section-bg { background: linear-gradient(135deg, #1a0033 0%, var(--purple-dark) 100%); width: 100%; padding: 3.5rem 0; }
+
+    .prompt-guide { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+    .prompt-guide-card { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+    .prompt-guide-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent); }
+    .prompt-guide-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .prompt-guide-card ul li { font-size: 0.82rem; color: var(--muted); padding-left: 1rem; position: relative; }
+    .prompt-guide-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
+
+    .prompt-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; color: var(--accent); margin-bottom: 1rem; }
+
+    .example-prompt { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; }
+    .example-prompt .ep-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .example-prompt p { font-size: 0.82rem; color: var(--text); line-height: 1.8; font-style: italic; white-space: pre-line; }
+    .copy-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(161,0,255,0.2); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; font-size: 0.7rem; color: var(--muted); cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.2s; }
+    .copy-btn:hover { background: rgba(161,0,255,0.4); color: #fff; }
+
+    .test-prompts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .test-prompt-card { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; }
+    .test-prompt-card .tp-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08rem; color: var(--accent); margin-bottom: 0.4rem; }
+    .test-prompt-card p { font-size: 0.8rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+
+    /* TIPS */
+    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+    .tip-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .tip-card .tip-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); opacity: 0.4; margin-bottom: 0.5rem; }
+    .tip-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .tip-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+
+    /* FORM */
+    .form-section { background: var(--bg); width: 100%; padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .form-embed { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; height: 520px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: var(--muted); text-align: center; padding: 2rem; }
+    .form-embed svg { width: 40px; height: 40px; opacity: 0.3; }
+    .form-embed p { font-size: 0.85rem; opacity: 0.6; max-width: 400px; }
+    .form-embed .form-note { font-size: 0.75rem; opacity: 0.4; }
+
+    /* FOOTER */
+    .page-footer { background: #0d0018; border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.75rem; color: var(--muted); }
+
+    @media (max-width: 800px) {
+      .capabilities-grid, .output-grid, .tips-grid { grid-template-columns: 1fr 1fr; }
+      .input-grid { grid-template-columns: 1fr 1fr; }
+      .prompt-guide, .test-prompts { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 1.8rem; }
+    }
+    @media (max-width: 560px) {
+      .capabilities-grid, .output-grid, .input-grid, .tips-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to all agents
+    </a>
+    <span class="nav-title">UKI Banking Reinvented: Agentic AI</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="tag">Agent 2 · Process Mapping</div>
+  <h1>Your AI <span>Process Mapper</span></h1>
+  <p>Build an agent that turns any input — a transcript, audio file, PowerPoint, or even a web scrape — into a polished process map in Mermaid, Visio, or BPMN format. Built for analysts and consultants who are tired of drawing boxes manually.</p>
+  <div class="hero-chips">
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Mermaid Code</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Visio Table</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>BPMN</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>Audio / Transcript</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>PowerPoint / Docs</span>
+  </div>
+</section>
+
+<!-- WHAT IT CAN DO -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-label">What You're Building</div>
+    <h2>What Your Process Mapper Can Do</h2>
+    <p class="lead">This agent takes the pain out of process documentation. Feed it almost anything — and it will produce a structured, formatted process map ready to drop into your tool of choice.</p>
+    <div class="capabilities-grid">
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg></div>
+        <h4>Audio & Transcript Input</h4>
+        <p>Paste a meeting transcript or upload an audio recording. The agent extracts process steps automatically — no manual note-taking needed.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h4>PowerPoint & Document Input</h4>
+        <p>Hand it a deck or a Word doc describing a process and it will convert the content into a structured flow — no reformatting required.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Web Scraping</h4>
+        <p>Give it a URL or describe a standard industry process. It will research and build a baseline process map for you to refine.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h4>Mermaid Code Output</h4>
+        <p>Get clean, ready-to-render Mermaid diagram code — works in Microsoft Copilot, VS Code, Confluence, Notion and more.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>Visio-Ready Table</h4>
+        <p>Outputs a structured table (Step, Actor, Action, Decision, Next Step) that maps directly into Visio's import format — one click to diagram.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h4>BPMN Formatting</h4>
+        <p>Apply BPMN notation standards, swim lanes, gateway logic and event types — ideal for formal process documentation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUTPUT FORMATS -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-label">Output Formats</div>
+    <h2>Choose Your Output Format</h2>
+    <p class="lead">When you build your agent, decide which format (or formats) you want it to default to. You can always ask it to switch — but setting a default in your instructions saves time on every use.</p>
+    <div class="output-grid">
+      <div class="output-card">
+        <div class="out-tag">Option 1</div>
+        <h4>Mermaid Code</h4>
+        <p>Best for: quick visualisation inside Copilot, VS Code, Confluence or Notion. Renders instantly — no additional software needed.</p>
+        <div class="out-example">graph TD<br>&nbsp;&nbsp;A[Start] --> B{Decision}<br>&nbsp;&nbsp;B -->|Yes| C[Action]<br>&nbsp;&nbsp;B -->|No| D[End]</div>
+      </div>
+      <div class="output-card">
+        <div class="out-tag">Option 2</div>
+        <h4>Visio-Ready Table</h4>
+        <p>Best for: formal deliverables and client-facing work. Paste into Excel, then import directly into Visio to auto-generate a diagram.</p>
+        <div class="out-example">Step | Actor | Action | Decision | Next<br>1 | Analyst | Receive brief | — | Step 2<br>2 | Manager | Review | Approve? | Step 3</div>
+      </div>
+      <div class="output-card">
+        <div class="out-tag">Option 3</div>
+        <h4>BPMN Notation</h4>
+        <p>Best for: structured process documentation that follows industry standards. Includes swim lanes, gateways, events and task types.</p>
+        <div class="out-example">Pool: Client Onboarding<br>Lane: Analyst<br>&nbsp;&nbsp;[Start] → (Receive KYC)<br>&nbsp;&nbsp;→ &lt;Review?&gt; → [Approve]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO + STEPS -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-label">Watch First</div>
+    <h2>How to Build Your Agent</h2>
+    <p class="lead">Watch the video below to see the full build process in Copilot Studio. Then use the prompt-writing guide to configure your agent for process mapping specifically.</p>
+    <div class="video-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      <p>Step-by-step walkthrough video</p>
+      <span>Replace this block with your embedded video</span>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:2rem;">
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A100FF" stroke-width="1.5" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>images/step-1.png</span>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A100FF" stroke-width="1.5" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>images/step-2.png</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROMPT WRITING -->
+<div class="prompt-section-bg">
+  <div class="section-inner">
+    <div class="section-label section-dark-label">The Most Important Part</div>
+    <h2 style="margin-bottom:0.5rem;">Writing Your Agent's Instructions</h2>
+    <p class="lead dark-lead">Your instructions define what format the agent outputs, what inputs it accepts, and how it structures its diagrams. The more specific you are, the more consistent and useful the output will be every time.</p>
+
+    <div class="prompt-guide">
+      <div class="prompt-guide-card">
+        <h4>✅ What a strong prompt includes</h4>
+        <ul>
+          <li>Your preferred default output format (Mermaid / Visio / BPMN)</li>
+          <li>The notation style — e.g. BPMN 2.0, flowchart, swim lanes</li>
+          <li>Preferred colour coding or shape conventions if any</li>
+          <li>What inputs it should accept (audio transcript, doc, URL, free text)</li>
+          <li>How to handle ambiguity — ask clarifying questions or make assumptions</li>
+          <li>Whether to include a written summary alongside the diagram</li>
+          <li>Level of detail — high-level overview vs granular step-by-step</li>
+          <li>Actor/role labelling preferences (e.g. use job titles not names)</li>
+        </ul>
+      </div>
+      <div class="prompt-guide-card">
+        <h4>❌ Common mistakes to avoid</h4>
+        <ul>
+          <li>Not specifying a format — it'll pick one at random each time</li>
+          <li>Forgetting to mention swim lanes if you want them</li>
+          <li>Not saying how detailed to go — you'll get inconsistent depth</li>
+          <li>Skipping colour/style rules — output looks different every time</li>
+          <li>Not telling it how to handle unclear inputs</li>
+          <li>Forgetting to ask for a text summary — diagrams without context are hard to review</li>
+          <li>Not specifying actor labels — it may use names instead of roles</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prompt-label">💡 Example Prompt — Copy, Edit &amp; Make It Yours</div>
+    <div class="example-prompt">
+      <div class="ep-label">Full System Prompt Example</div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('p').innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy',2000)">Copy</button>
+      <p>You are an expert process mapping assistant supporting analysts and consultants at Accenture. Your job is to take any input I provide and convert it into a clear, structured process map.
+
+INPUTS YOU SHOULD ACCEPT:
+- Pasted text descriptions of a process
+- Meeting transcripts or audio transcripts (I will paste the text)
+- Content from PowerPoint slides or Word documents (I will paste the text)
+- A URL — scrape the page and infer the process from its content
+- Free-form verbal descriptions ("here's roughly how it works...")
+
+DEFAULT OUTPUT FORMAT: [CHOOSE ONE: Mermaid code / Visio-ready table / BPMN]
+Unless I ask for a different format, always use the above. If I ask you to switch format, remember that preference for the rest of the conversation.
+
+FORMATTING RULES:
+- Always use swim lanes to separate actors/roles
+- Label nodes with action verbs (e.g. "Review Document", not "Document Review")
+- Use diamonds for decisions, rectangles for tasks, rounded rectangles for start/end
+- Colour code by actor: [define your colours here, e.g. Analyst = blue, Manager = purple]
+- Include a numbered written summary below every diagram listing each step in plain English
+
+NOTATION STANDARD: [CHOOSE: BPMN 2.0 / Standard flowchart / Agile-style]
+
+LEVEL OF DETAIL: Default to mid-level (5–12 steps). If I say "high level" give me 3–6 steps. If I say "detailed", go granular with sub-steps.
+
+HANDLING AMBIGUITY: If the input is unclear or incomplete, ask me up to 3 clarifying questions before generating the map — don't guess at critical decision points.
+
+ACTORS: Always refer to people by their role/job title, never by name.
+
+Always end your response by asking: "Would you like me to adjust the format, level of detail, or add any missing steps?"</p>
+    </div>
+
+    <div class="prompt-label" style="margin-top:2rem;">🧪 Test Prompts — Try These Once Your Agent Is Built</div>
+    <div class="test-prompts">
+      <div class="test-prompt-card">
+        <div class="tp-label">From a Description</div>
+        <p>"Map the process for onboarding a new corporate banking client, from initial contact to account activation."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">From a Transcript</div>
+        <p>"Here's a transcript from our process workshop last week. Extract the end-to-end loan approval process and map it."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Switch Format</div>
+        <p>"Give me the same process as a Visio-ready table instead of Mermaid code."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Add Swim Lanes</div>
+        <p>"Rebuild that map with swim lanes — separate lanes for the Analyst, Manager, and Client."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">From the Web</div>
+        <p>"Look up the standard KYC process for UK retail banks and map it out as a starting point for me to adapt."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Refine & Iterate</div>
+        <p>"Add a decision gateway after step 3 — if the client fails KYC, route them to a remediation process."</p>
+      </div>
+    </div>
+
+    <div class="section-label section-dark-label" style="margin-top:2.5rem;">🚀 Ways to Take It Further</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h4>Build a template library</h4>
+        <p>Ask the agent to generate baseline maps for common banking processes (KYC, loan approval, complaints handling) and save them as reusable starting points.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h4>Layer in risk &amp; controls</h4>
+        <p>Instruct it to annotate each step with relevant risk flags or control checkpoints — turning a process map into a risk assessment tool.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h4>Compare as-is vs to-be</h4>
+        <p>Generate two versions of the same process — current state and future state — and ask it to summarise the key differences and efficiency gains.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-section">
+  <div class="section-inner">
+    <div class="section-label section-dark-label">You're Done!</div>
+    <h2>Submit Your Agent</h2>
+    <p class="lead dark-lead">Fill in the form below to log the agent you built during today's session.</p>
+    <div class="form-embed">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <p>Microsoft Form embed placeholder</p>
+      <span class="form-note">Replace with your Microsoft Forms iframe once you have the link.</span>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer">
+  UKI Banking Reinvented: Agentic AI &nbsp;·&nbsp; Agent 2 · Your AI Process Mapper
+</footer>
+
+</body>
+</html>
