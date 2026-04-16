@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Client Relationship Agent · UKI Banking Reinvented: Agentic AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #A100FF;
+      --purple-mid: #6600cc;
+      --purple-dark: #2d0060;
+      --bg: #0d0018;
+      --accent: #e040fb;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(161,0,255,0.25);
+      --text: #f0e6ff;
+      --muted: rgba(240,230,255,0.55);
+      --light-text: #1a0033;
+      --light-muted: #5a4a6a;
+      --light-subtle: #9980b0;
+      --light-border: #e8e0f0;
+    }
+
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); font-weight: 400; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .topnav { background: rgba(13,0,24,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+    .topnav-inner { max-width: 1100px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
+    .back-link svg { width: 16px; height: 16px; }
+    .nav-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+
+    /* HERO */
+    .page-hero { background: linear-gradient(135deg, #0d0018 0%, var(--purple-dark) 60%, #1a0033 100%); border-bottom: 1px solid var(--border); padding: 3.5rem 2rem; text-align: center; }
+    .page-hero .tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .page-hero h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--accent); }
+    .page-hero p { font-size: 0.95rem; color: var(--muted); font-weight: 200; max-width: 680px; margin: 0 auto 1.5rem; }
+    .hero-chips { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .chip { background: rgba(161,0,255,0.15); border: 1px solid rgba(161,0,255,0.35); border-radius: 50px; padding: 0.3rem 0.9rem; font-size: 0.75rem; color: var(--text); display: inline-flex; align-items: center; gap: 0.4rem; }
+    .chip svg { width: 13px; height: 13px; stroke: var(--accent); }
+
+    /* UPGRADE BANNER */
+
+    /* SECTIONS */
+    .section-light { background: #ffffff; color: var(--light-text); width: 100%; padding: 3.5rem 0; }
+    .section-light + .section-light { border-top: 1px solid #f0e8ff; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .prompt-section-bg { background: linear-gradient(135deg, #1a0033 0%, var(--purple-dark) 100%); width: 100%; padding: 3.5rem 0; }
+
+    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12rem; margin-bottom: 0.6rem; }
+    .section-light .section-label { color: var(--purple); }
+    .section-dark-label { color: var(--accent); }
+    h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .section-light h2 { color: var(--light-text); }
+    .lead { font-size: 0.9rem; font-weight: 200; max-width: 720px; margin-bottom: 2rem; }
+    .section-light .lead { color: var(--light-muted); }
+    .dark-lead { color: var(--muted); }
+
+    /* CAPABILITY CARDS */
+    .capabilities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    .cap-card { background: #f8f4ff; border: 1px solid var(--light-border); border-radius: 8px; padding: 1.25rem; }
+    .cap-card .cap-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--purple-mid), var(--purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
+    .cap-card .cap-icon svg { width: 18px; height: 18px; stroke: #fff; }
+    .cap-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--light-text); margin-bottom: 0.35rem; }
+    .cap-card p { font-size: 0.78rem; color: var(--light-muted); line-height: 1.55; }
+
+    /* HOW IT WORKS FLOW */
+    .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; position: relative; }
+    .flow-card { background: #f8f4ff; border: 1px solid var(--light-border); border-radius: 8px; padding: 1.25rem; text-align: center; position: relative; }
+    .flow-card .flow-num { width: 36px; height: 36px; background: linear-gradient(135deg, var(--purple-mid), var(--purple)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: #fff; margin: 0 auto 0.75rem; }
+    .flow-card h4 { font-size: 0.82rem; font-weight: 700; color: var(--light-text); margin-bottom: 0.3rem; }
+    .flow-card p { font-size: 0.74rem; color: var(--light-muted); line-height: 1.5; }
+    .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--purple); font-size: 1.2rem; padding-top: 2rem; }
+
+    /* SOURCES GRID */
+    .sources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .source-card { border: 1px solid var(--light-border); border-radius: 10px; overflow: hidden; }
+    .source-card .sc-header { background: linear-gradient(135deg, var(--purple-mid), var(--purple)); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+    .source-card .sc-header svg { width: 20px; height: 20px; stroke: #fff; flex-shrink: 0; }
+    .source-card .sc-header h4 { font-size: 0.88rem; font-weight: 700; color: #fff; }
+    .source-card .sc-body { padding: 1.25rem; background: #f8f4ff; }
+    .source-card .sc-body ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .source-card .sc-body ul li { font-size: 0.78rem; color: var(--light-muted); padding-left: 1rem; position: relative; }
+    .source-card .sc-body ul li::before { content: "→"; position: absolute; left: 0; color: var(--purple); font-size: 0.72rem; }
+
+    /* VIDEO */
+    .video-placeholder { background: #f8f4ff; border: 2px dashed rgba(161,0,255,0.25); border-radius: 10px; height: 360px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; color: var(--light-muted); margin-bottom: 2rem; }
+    .video-placeholder svg { width: 52px; height: 52px; opacity: 0.3; stroke: var(--purple); }
+    .video-placeholder p { font-size: 0.9rem; font-weight: 700; }
+    .video-placeholder span { font-size: 0.75rem; opacity: 0.5; }
+
+    /* IMAGE PLACEHOLDERS */
+    .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+    .img-placeholder { background: #f8f4ff; border: 2px dashed rgba(161,0,255,0.2); border-radius: 8px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; }
+    .img-placeholder span { font-size: 0.72rem; color: var(--light-subtle); }
+
+    /* PROMPT GUIDE */
+    .prompt-guide { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+    .prompt-guide-card { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+    .prompt-guide-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent); }
+    .prompt-guide-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .prompt-guide-card ul li { font-size: 0.82rem; color: var(--muted); padding-left: 1rem; position: relative; }
+    .prompt-guide-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
+
+    .prompt-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; color: var(--accent); margin-bottom: 1rem; }
+    .example-prompt { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; }
+    .example-prompt .ep-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .example-prompt p { font-size: 0.82rem; color: var(--text); line-height: 1.8; font-style: italic; white-space: pre-line; }
+    .copy-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(161,0,255,0.2); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.6rem; font-size: 0.7rem; color: var(--muted); cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.2s; }
+    .copy-btn:hover { background: rgba(161,0,255,0.4); color: #fff; }
+
+    /* TEST PROMPTS */
+    .test-prompts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .test-prompt-card { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; }
+    .test-prompt-card .tp-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08rem; color: var(--accent); margin-bottom: 0.4rem; }
+    .test-prompt-card p { font-size: 0.8rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+
+    /* TIPS */
+    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+    .tip-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .tip-card .tip-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); opacity: 0.4; margin-bottom: 0.5rem; }
+    .tip-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .tip-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+
+    /* FORM */
+    .form-section { background: var(--bg); width: 100%; padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .form-embed { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; height: 520px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: var(--muted); text-align: center; padding: 2rem; }
+    .form-embed svg { width: 40px; height: 40px; opacity: 0.3; }
+    .form-embed p { font-size: 0.85rem; opacity: 0.6; max-width: 400px; }
+    .form-embed .form-note { font-size: 0.75rem; opacity: 0.4; }
+
+    /* FOOTER */
+    .page-footer { background: #0d0018; border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.75rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .capabilities-grid, .flow-grid, .tips-grid { grid-template-columns: 1fr 1fr; }
+      .sources-grid, .prompt-guide, .test-prompts, .img-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 1.8rem; }
+    }
+    @media (max-width: 560px) {
+      .capabilities-grid, .flow-grid, .tips-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to all agents
+    </a>
+    <span class="nav-title">UKI Banking Reinvented: Agentic AI</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="tag">Agent 4 · Client Relationship Management</div>
+  <h1>Your AI <span>Client Relationship Manager</span></h1>
+  <p>Build an agent that reads your emails, meetings and client files — then proactively spots opportunities, matches Accenture thought leadership to client needs, and helps you stay one step ahead of every relationship.</p>
+  <div class="hero-chips">
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Relationship Intelligence</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Opportunity Spotting</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Thought Leadership Matching</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Emails & Meetings</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Web Search</span>
+  </div>
+</section>
+
+<!-- BUILDS ON AGENT 1 -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-label">What You're Building</div>
+    <h2>What Your Client Relationship Agent Can Do</h2>
+    <p class="lead">This agent connects your day-to-day client interactions with Accenture's commercial intelligence — helping you spot the right moment to bring the right insight to the right client.</p>
+
+    <div class="capabilities-grid">
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h4>Relationship Health Check</h4>
+        <p>Scan recent emails and meetings with a specific client. Summarise the state of the relationship — tone, frequency, open actions, and any signals of risk or opportunity.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4>Opportunity Spotting</h4>
+        <p>Read a client email thread and identify commercial signals — budget mentions, strategic challenges, technology pain points — and suggest what Accenture services could address them.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h4>Thought Leadership Matching</h4>
+        <p>Given a client's current challenges or interests, search SharePoint for relevant internal assets and the web for Accenture.com publications — then summarise and suggest how to use them.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h4>Meeting Preparation</h4>
+        <p>Before any client meeting, get a full brief: relationship history, open topics, relevant news about their organisation, and 2–3 smart commercial questions to ask.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Market & News Intelligence</h4>
+        <p>Search for recent news about a client's organisation, their sector, or regulatory developments affecting them — and suggest timely, relevant talking points.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <h4>Touchpoint Suggestions</h4>
+        <p>Recommend when and how to reach out — seasonal greetings, relevant industry events, publication anniversaries, or simply flagging when a client has gone quiet.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2>From Client Signal to Commercial Action</h2>
+    <p class="lead">The agent connects three sources of intelligence — your live M365 data, your internal SharePoint assets, and the public web — and turns them into actionable commercial insights.</p>
+
+    <div class="flow-grid">
+      <div class="flow-card">
+        <div class="flow-num">1</div>
+        <h4>Read the Signal</h4>
+        <p>Scans emails, meeting notes, and Teams chats for client mentions, challenges, priorities, and commercial hints.</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-num">2</div>
+        <h4>Search Internally</h4>
+        <p>Searches SharePoint for relevant Accenture thought leadership, proposals, case studies, and assets saved to your team site.</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-num">3</div>
+        <h4>Search Externally</h4>
+        <p>Uses web search to find recent Accenture.com publications, industry news, and client organisation updates relevant to the conversation.</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-num">4</div>
+        <h4>Suggest the Action</h4>
+        <p>Produces a prioritised list of recommended next steps — from sharing a specific paper to drafting an outreach email or flagging an opportunity to pursue.</p>
+      </div>
+    </div>
+
+    <div class="sources-grid">
+      <div class="source-card">
+        <div class="sc-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <h4>Internal Sources (M365)</h4>
+        </div>
+        <div class="sc-body">
+          <ul>
+            <li>Outlook emails with and about the client</li>
+            <li>Calendar meetings and any attached briefing docs</li>
+            <li>Teams messages and channel conversations</li>
+            <li>SharePoint: saved thought leadership, proposals, account plans</li>
+            <li>OneNote meeting notes if stored in Teams</li>
+          </ul>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="sc-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <h4>External Sources (Web Search)</h4>
+        </div>
+        <div class="sc-body">
+          <ul>
+            <li>Accenture.com thought leadership and research reports</li>
+            <li>Client organisation news, press releases, and results</li>
+            <li>Industry and regulatory developments in banking</li>
+            <li>Competitor moves and market context</li>
+            <li>Relevant events, awards, or anniversaries</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="section-light">
+  <div class="section-inner">
+    <div class="section-label">Watch First</div>
+    <h2>How to Build Your Agent</h2>
+    <p class="lead">Watch the walkthrough video to see how to set this up in Copilot Studio, then use the prompt-writing guide below to configure it for client relationship management.</p>
+    <div class="video-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      <p>Step-by-step walkthrough video</p>
+      <span>Replace this block with your embedded video</span>
+    </div>
+    <div class="img-grid">
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A100FF" stroke-width="1.5" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>images/step-1.png</span>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A100FF" stroke-width="1.5" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>images/step-2.png</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROMPT WRITING -->
+<div class="prompt-section-bg">
+  <div class="section-inner">
+    <div class="section-label section-dark-label">The Most Important Part</div>
+    <h2 style="margin-bottom:0.5rem;">Writing Your Agent's Instructions</h2>
+    <p class="lead dark-lead">This agent is more sophisticated than Agent 1 — it needs to understand commercial context, know how to search intelligently, and produce output that is genuinely actionable for a client-facing professional.</p>
+
+    <div class="prompt-guide">
+      <div class="prompt-guide-card">
+        <h4>✅ What a strong prompt includes</h4>
+        <ul>
+          <li>Your name, role, and the portfolio of clients you manage</li>
+          <li>How to categorise opportunity signals (e.g. by Accenture service line)</li>
+          <li>Which SharePoint locations hold your thought leadership assets</li>
+          <li>Instructions to always search the web for latest Accenture.com content</li>
+          <li>A clear output format for opportunity briefs and touchpoint suggestions</li>
+          <li>Rules for tone — commercial and precise, never pushy or generic</li>
+          <li>How to flag relationship risk (e.g. client gone quiet for 30+ days)</li>
+          <li>Seasonal and calendar awareness — quarter end, budget cycles, events</li>
+          <li>What it should never do — e.g. never suggest reaching out without context</li>
+        </ul>
+      </div>
+      <div class="prompt-guide-card">
+        <h4>❌ Common mistakes to avoid</h4>
+        <ul>
+          <li>Not telling it which clients to focus on — it needs a portfolio to work with</li>
+          <li>Forgetting to mention Accenture.com as an explicit search source</li>
+          <li>Not specifying output structure — you'll get paragraphs instead of action lists</li>
+          <li>Leaving out commercial framing — it won't know what an "opportunity" means to you</li>
+          <li>No guidance on tone — client outreach drafts can easily sound generic</li>
+          <li>Not telling it how to prioritise — high-value clients vs. smaller accounts</li>
+          <li>Skipping the "what not to do" rules — guardrails matter for client comms</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prompt-label">💡 Example Prompt — Copy, Edit &amp; Make It Yours</div>
+    <div class="example-prompt">
+      <div class="ep-label">Full System Prompt Example</div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('p').innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy',2000)">Copy</button>
+      <p>You are an intelligent client relationship assistant for [YOUR NAME], a [YOUR ROLE] at Accenture working with UKI Banking clients. Your purpose is to help me identify commercial opportunities, match Accenture thought leadership to client needs, and maintain strong, proactive client relationships.
+
+MY CLIENT PORTFOLIO:
+[List your key clients here — e.g. "Barclays (strategic account), Lloyds Banking Group (growth account), Metro Bank (developing account)"]
+
+YOUR THREE CORE JOBS:
+
+1. OPPORTUNITY SPOTTING
+When I share an email thread, meeting summary, or client update with you:
+- Extract any signals that suggest a client challenge, strategic priority, technology pain point, or budget/decision moment
+- Map each signal to a relevant Accenture service area (e.g. Technology Transformation, AI & Data, Risk & Compliance, Cost Reduction, Cloud Migration)
+- Rate each opportunity: High / Medium / Low based on urgency and commercial relevance
+- Suggest a recommended next action for each (e.g. "Share the Banking on AI report", "Request an exploratory conversation", "Loop in [service line] SME")
+
+Output format:
+| Signal | Service Area | Opportunity Rating | Recommended Action |
+
+2. THOUGHT LEADERSHIP MATCHING
+When asked to find relevant content for a client:
+- First search my SharePoint for saved Accenture assets relevant to the client's challenges
+- Then search the web specifically on accenture.com for the latest published thought leadership, research reports, and point of views
+- Summarise each piece in 2 sentences: what it covers and why it's relevant to this client
+- Always include the URL or SharePoint link where available
+- Prioritise recency — content published in the last 12 months ranks higher
+
+Output format:
+| Title | Source | Published | Why Relevant | Suggested Use |
+
+3. RELATIONSHIP MANAGEMENT & TOUCHPOINTS
+Proactively suggest reasons to reach out that feel natural and valuable — not forced:
+- Flag if a client has not been contacted in 30+ days
+- Suggest seasonal touchpoints: quarter-end check-ins, budget season conversations, year-end messages
+- Surface relevant industry news, regulatory changes, or market events that give a genuine reason to reach out
+- Suggest relevant Accenture events, webinars, or roundtables the client might value
+- Draft outreach messages when asked — warm, professional, with a clear reason to connect
+
+TONE RULES:
+- Always commercial and precise. Never generic or salesy.
+- Outreach drafts should feel like they come from a trusted advisor, not a sales rep.
+- Never suggest reaching out without a specific, relevant reason.
+- Keep opportunity briefs concise — 3 bullet points maximum per opportunity.
+
+SEARCH BEHAVIOUR:
+- Always search accenture.com when asked for thought leadership — do not rely on training data alone.
+- When searching for client news, include their organisation name + "banking" + current year.
+- Prioritise sources: accenture.com > FT/Reuters/BBC > industry publications > general web.
+
+At the end of any analysis, always ask: "Would you like me to draft an outreach email, find more content, or add this to your opportunity tracker?"</p>
+    </div>
+
+    <div class="prompt-label" style="margin-top:2rem;">🧪 Test Prompts — Try These Once Your Agent Is Built</div>
+    <div class="test-prompts">
+      <div class="test-prompt-card">
+        <div class="tp-label">Opportunity Scan</div>
+        <p>"Here's an email from my client at Lloyds [paste email]. What commercial opportunities do you see and what should I do next?"</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Find Thought Leadership</div>
+        <p>"My client is asking about AI in retail banking. Find the most relevant recent Accenture thought leadership I could share with them."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Relationship Health</div>
+        <p>"I haven't spoken to my Barclays contact in 6 weeks. What's a good reason to reach out right now, and can you draft a short email?"</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Meeting Prep</div>
+        <p>"I have a QBR with Metro Bank on Friday. Prepare me — relationship history, open topics, relevant news about them, and 3 commercial questions."</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Market Intelligence</div>
+        <p>"What are the most significant regulatory or market developments in UK banking this quarter that I should be aware of for client conversations?"</p>
+      </div>
+      <div class="test-prompt-card">
+        <div class="tp-label">Seasonal Touchpoint</div>
+        <p>"It's approaching end of financial year for most of my clients. What are 3 timely and relevant reasons to reach out to each of them this week?"</p>
+      </div>
+    </div>
+
+    <div class="section-label section-dark-label" style="margin-top:2.5rem;">🚀 Ways to Take It Further</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h4>Build a client opportunity tracker</h4>
+        <p>Ask the agent to maintain a running log of opportunities spotted across all your clients — updated each time you share new client communications with it.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h4>Create a weekly relationship digest</h4>
+        <p>Every Monday morning, ask it to review the past week's client interactions and produce a digest: relationship health per client, open actions, and suggested touchpoints for the week ahead.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h4>Link it to your CRM language</h4>
+        <p>Tell the agent to use your organisation's CRM terminology (e.g. pipeline stages, opportunity types) so its output slots directly into your Salesforce or Microsoft Dynamics records.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-section">
+  <div class="section-inner">
+    <div class="section-label section-dark-label">You're Done!</div>
+    <h2>Submit Your Agent</h2>
+    <p class="lead dark-lead">Fill in the form below to log the agent you built during today's session.</p>
+    <div style="width:100%; min-height:520px;">
+      <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=OT154DkJbUmxKRmO3ZFv61MpEhuQjVBNulXUnHKPCvtUMlE5VUJITDdMTkJST1hQN1FWUVNTM0M3VC4u" width="100%" height="500px" frameborder="0" marginwidth="0" marginheight="0" style="border:none; max-width:100%; border-radius:8px;" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer">
+  UKI Banking Reinvented: Agentic AI &nbsp;·&nbsp; Agent 4 · Your AI Client Relationship Manager
+</footer>
+
+</body>
+</html>
