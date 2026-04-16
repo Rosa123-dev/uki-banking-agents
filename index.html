@@ -327,6 +327,73 @@
     /* NAV RESPONSIVE */
     @media (max-width: 600px) { .nav-links { display: none; } }
 
+    /* ── SIDE NAVIGATOR ── */
+    .side-nav {
+      position: fixed;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .side-nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .side-nav a .sn-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(161,0,255,0.25);
+      border: 1px solid rgba(161,0,255,0.4);
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .side-nav a .sn-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: rgba(240,230,255,0.0);
+      background: rgba(13,0,24,0.9);
+      border: 1px solid rgba(161,0,255,0.3);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.2s, color 0.2s;
+      opacity: 0;
+      position: absolute;
+      left: 1.4rem;
+    }
+
+    .side-nav a:hover .sn-dot,
+    .side-nav a.active .sn-dot {
+      background: #A100FF;
+      border-color: #e040fb;
+      transform: scale(1.4);
+      box-shadow: 0 0 6px rgba(161,0,255,0.6);
+    }
+
+    .side-nav a:hover .sn-label {
+      opacity: 1;
+      color: #e040fb;
+    }
+
+    .side-nav a.active .sn-dot {
+      background: #e040fb;
+      border-color: #e040fb;
+    }
+
+    @media (max-width: 1400px) { .side-nav { display: none; } }
+
     /* ── FAQ ── */
     .faq-section { background: #ffffff; padding: 4rem 2rem; }
     .faq-inner { max-width: 1280px; margin: 0 auto; }
@@ -428,8 +495,19 @@
 </head>
 <body>
 
+<!-- SIDE NAVIGATOR -->
+<nav class="side-nav" id="sideNav">
+  <a href="#hero"><span class="sn-dot"></span><span class="sn-label">Home</span></a>
+  <a href="#agents"><span class="sn-dot"></span><span class="sn-label">Choose Your Agent</span></a>
+  <a href="#how"><span class="sn-dot"></span><span class="sn-label">How It Works</span></a>
+  <a href="#faq"><span class="sn-dot"></span><span class="sn-label">FAQs</span></a>
+  <a href="#prompts"><span class="sn-dot"></span><span class="sn-label">Scheduled Prompts</span></a>
+  <a href="#submit"><span class="sn-dot"></span><span class="sn-label">Submit Your Agent</span></a>
+  <a href="#built"><span class="sn-dot"></span><span class="sn-label">How We Built This</span></a>
+</nav>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hero">
   <nav class="navbar">
     <div class="navbar-brand">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -639,7 +717,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-a">
-          <p>PLACEHOLDER — add your answer here. In the meantime, speak to one of the session facilitators and they'll help you get access or suggest an alternative approach for today.</p>
+          <p>This usually means you don't have the advanced Microsoft 365 Copilot licence that's required to access Agent Builder. To get access, you'll need to request a Copilot licence through <strong>Digital Worker</strong> — your trainer can point you in the right direction on how to do that. In the meantime, don't sit idle — pair up with someone who does have access and build the agent together. You'll still get the full learning experience, and it's often more fun with two people working through it.</p>
         </div>
       </div>
 
@@ -868,11 +946,27 @@
   function toggleFaq(btn) {
     const answer = btn.nextElementSibling;
     const isOpen = btn.classList.contains('open');
-    // Close all
     document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
-    // Open clicked if it was closed
     if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
   }
+
+  // Scroll spy for side navigator
+  const sections = ['hero', 'agents', 'how', 'faq', 'prompts', 'submit', 'built'];
+  const navLinks = document.querySelectorAll('.side-nav a');
+
+  function updateNav() {
+    let current = 'hero';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 </script>
 </body>
 </html>
