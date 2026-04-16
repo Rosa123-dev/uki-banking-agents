@@ -326,6 +326,104 @@
 
     /* NAV RESPONSIVE */
     @media (max-width: 600px) { .nav-links { display: none; } }
+
+    /* ── FAQ ── */
+    .faq-section { background: #ffffff; padding: 4rem 2rem; }
+    .faq-inner { max-width: 1280px; margin: 0 auto; }
+    .faq-title { font-size: 2rem; font-weight: 700; color: #1a0033; text-align: center; margin-bottom: 0.5rem; }
+    .faq-subtitle { font-size: 0.9rem; color: #9980b0; font-weight: 200; text-align: center; margin-bottom: 3rem; }
+
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .faq-item { border: 1px solid #e8e0f0; border-radius: 8px; overflow: hidden; }
+
+    .faq-q { width: 100%; background: #f8f4ff; border: none; padding: 1.1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 700; color: #1a0033; cursor: pointer; text-align: left; transition: background 0.2s; }
+    .faq-q:hover { background: #f0e8ff; }
+    .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; stroke: #A100FF; transition: transform 0.25s; }
+    .faq-q.open { background: #A100FF; color: #fff; }
+    .faq-q.open svg { stroke: #fff; transform: rotate(180deg); }
+
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-a.open { max-height: 300px; }
+    .faq-a p { padding: 1rem 1.25rem; font-size: 0.83rem; color: #5a4a6a; line-height: 1.7; }
+
+    /* ── SCHEDULED PROMPTS ── */
+    .scheduled-section { background: linear-gradient(135deg, #2d0060 0%, #1a0033 100%); padding: 4rem 2rem; color: #fff; }
+    .scheduled-inner { max-width: 1280px; margin: 0 auto; }
+    .scheduled-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+    .scheduled-subtitle { font-size: 0.9rem; opacity: 0.65; font-weight: 200; text-align: center; margin-bottom: 3rem; }
+
+    .sp-explainer { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .sp-explainer-text, .sp-how { background: rgba(255,255,255,0.05); border: 1px solid rgba(161,0,255,0.3); border-radius: 10px; padding: 1.75rem; }
+    .sp-explainer h3, .sp-how h3 { font-size: 1rem; font-weight: 700; color: #e040fb; margin-bottom: 0.75rem; }
+    .sp-explainer p, .sp-how p { font-size: 0.83rem; color: rgba(240,230,255,0.7); line-height: 1.7; margin-bottom: 1rem; }
+    .sp-note { font-size: 0.78rem !important; opacity: 0.6; font-style: italic; }
+
+    .sp-where { margin: 1rem 0; }
+    .sp-where-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08rem; color: #e040fb; margin-bottom: 0.5rem; }
+    .sp-where-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .sp-chip { background: rgba(161,0,255,0.2); border: 1px solid rgba(161,0,255,0.4); border-radius: 50px; padding: 0.2rem 0.75rem; font-size: 0.75rem; color: #f0e6ff; }
+
+    .sp-steps { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .sp-steps li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.83rem; color: rgba(240,230,255,0.75); line-height: 1.6; }
+    .sp-steps li span { width: 24px; height: 24px; background: linear-gradient(135deg, #6600cc, #A100FF); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: #fff; flex-shrink: 0; margin-top: 2px; }
+    .sp-steps strong { color: #fff; }
+    .sp-steps em { color: #e040fb; font-style: normal; }
+
+    .sp-examples-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem; text-align: center; }
+
+    .prompts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+
+    .prompt-time-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(161,0,255,0.3); border-radius: 10px; overflow: hidden; }
+    .ptc-header { background: rgba(161,0,255,0.25); padding: 0.9rem 1.25rem; display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 700; color: #e040fb; }
+    .ptc-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .ptc-prompt { font-size: 0.82rem; color: #fff; font-style: italic; background: rgba(161,0,255,0.15); border-left: 3px solid #A100FF; padding: 0.6rem 0.8rem; border-radius: 0 6px 6px 0; line-height: 1.55; }
+    .ptc-desc { font-size: 0.78rem; color: rgba(240,230,255,0.6); line-height: 1.6; }
+    .ptc-placeholder { font-style: italic; opacity: 0.5; color: rgba(240,230,255,0.6); font-size: 0.83rem; }
+
+    /* ── LANDING FORM ── */
+    .landing-form-section { background: #ffffff; padding: 4rem 2rem; }
+    .landing-form-inner { max-width: 900px; margin: 0 auto; }
+    .form-title { font-size: 2rem; font-weight: 700; color: #1a0033; text-align: center; margin-bottom: 0.5rem; }
+    .form-subtitle { font-size: 0.9rem; color: #9980b0; font-weight: 200; text-align: center; margin-bottom: 2rem; }
+    .landing-form-embed { border: 1px solid #e8e0f0; border-radius: 10px; overflow: hidden; background: #f8f4ff; padding: 0.5rem; }
+
+    /* ── HOW WE BUILT THIS ── */
+    .built-section { background: linear-gradient(135deg, #0d0018 0%, #2d0060 100%); padding: 4rem 2rem; color: #fff; }
+    .built-inner { max-width: 1280px; margin: 0 auto; }
+    .built-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+    .built-subtitle { font-size: 0.9rem; opacity: 0.65; font-weight: 200; text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    .built-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .built-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(161,0,255,0.25); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; }
+    .built-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #6600cc, #A100FF); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+    .built-icon svg { width: 24px; height: 24px; stroke: #fff; }
+    .built-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: #e040fb; }
+    .built-card p { font-size: 0.82rem; color: rgba(240,230,255,0.65); line-height: 1.65; }
+
+    .built-meta { margin-top: 2.5rem; text-align: center; }
+    .built-meta-text { font-size: 1rem; font-weight: 200; color: rgba(240,230,255,0.6); max-width: 680px; margin: 0 auto; line-height: 1.8; font-style: italic; }
+
+    /* ── CREDIT ── */
+    .credit-section { background: #0d0018; padding: 2.5rem 2rem; }
+    .credit-inner { max-width: 1280px; margin: 0 auto; }
+    .credit-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(161,0,255,0.4), transparent); margin-bottom: 2rem; }
+    .credit-content { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .credit-label { font-size: 0.72rem; font-weight: 200; text-transform: uppercase; letter-spacing: 0.1rem; color: rgba(240,230,255,0.35); margin-bottom: 0.35rem; }
+    .credit-name { font-size: 1rem; font-weight: 700; color: rgba(240,230,255,0.85); margin-bottom: 0.2rem; }
+    .credit-role { font-size: 0.8rem; font-weight: 200; color: rgba(161,0,255,0.7); }
+    .credit-linkedin { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; font-size: 0.78rem; color: rgba(161,0,255,0.6); border: 1px solid rgba(161,0,255,0.25); border-radius: 50px; padding: 0.25rem 0.75rem; transition: color 0.2s, border-color 0.2s; }
+    .credit-linkedin:hover { color: #e040fb; border-color: rgba(224,64,251,0.5); }
+    .credit-accenture { opacity: 0.4; }
+
+    @media (max-width: 900px) {
+      .faq-grid, .built-cards { grid-template-columns: 1fr; }
+      .sp-explainer { grid-template-columns: 1fr; }
+      .prompts-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .prompts-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -396,15 +494,15 @@
       <a href="agent-1/index.html" class="agent-card">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
           </svg>
         </div>
-        <span class="card-tag">Agent Type 1</span>
-        <h3>Placeholder Agent A</h3>
-        <p>A short description of what this agent does and what participants will learn by building it goes here.</p>
+        <span class="card-tag">Agent 1 · Personal Productivity</span>
+        <h3>Your AI Secretary</h3>
+        <p>Build a personal assistant that knows your emails, calendar, Teams messages and SharePoint files — and helps you stay on top of your day.</p>
         <div class="card-meta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          6 steps · ~30 mins
+          M365 · Outlook · Teams · SharePoint
         </div>
         <span class="card-cta">
           Start building
@@ -416,15 +514,15 @@
       <a href="agent-2/index.html" class="agent-card">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
           </svg>
         </div>
-        <span class="card-tag">Agent Type 2</span>
-        <h3>Placeholder Agent B</h3>
-        <p>A short description of what this agent does and what participants will learn by building it goes here.</p>
+        <span class="card-tag">Agent 2 · Process Mapping</span>
+        <h3>Your AI Process Mapper</h3>
+        <p>Turn any input — a transcript, audio file, PowerPoint or URL — into a polished process map in Mermaid, Visio or BPMN format. Built for analysts tired of drawing boxes manually.</p>
         <div class="card-meta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          8 steps · ~45 mins
+          Mermaid · Visio · BPMN · Audio · Web
         </div>
         <span class="card-cta">
           Start building
@@ -439,12 +537,12 @@
             <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
           </svg>
         </div>
-        <span class="card-tag">Agent Type 3</span>
-        <h3>Placeholder Agent C</h3>
-        <p>A short description of what this agent does and what participants will learn by building it goes here.</p>
+        <span class="card-tag">Agent 3 · Data Migration</span>
+        <h3>Your AI Data Mapping Accelerator</h3>
+        <p>Paste in source and target schema documentation and let the agent compare them, generate mapping tables, flag risks, identify PII, and suggest ETL transformation logic.</p>
         <div class="card-meta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          5 steps · ~25 mins
+          Oracle → Azure · Schema Analysis · Gap Review
         </div>
         <span class="card-cta">
           Start building
@@ -456,15 +554,15 @@
       <a href="agent-4/index.html" class="agent-card">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </div>
-        <span class="card-tag">Agent Type 4</span>
-        <h3>Placeholder Agent D</h3>
-        <p>A short description of what this agent does and what participants will learn by building it goes here.</p>
+        <span class="card-tag">Agent 4 · Sales & Client Management</span>
+        <h3>Your AI Client Relationship Manager</h3>
+        <p>Spot commercial opportunities in client emails, match Accenture thought leadership to client needs, and stay proactively ahead of every relationship.</p>
         <div class="card-meta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          7 steps · ~40 mins
+          M365 · SharePoint · Web Search · Accenture.com
         </div>
         <span class="card-cta">
           Start building
@@ -504,11 +602,277 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div style="display:flex;justify-content:center;">
+      <span class="section-label">FREQUENTLY ASKED QUESTIONS</span>
+    </div>
+    <h2 class="faq-title">Got Questions?</h2>
+    <p class="faq-subtitle">Everything you need to know before you start building.</p>
+
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need any coding experience?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Not at all. Every agent in today's session is built using Microsoft Copilot Studio — a no-code tool where you configure your agent through plain English instructions. The most important skill is being able to write a clear, specific prompt. No programming required.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is Copilot Studio?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Copilot Studio is Microsoft's no-code platform for building custom AI agents that plug into your Microsoft 365 environment. You define what the agent knows, how it behaves, and what it can access — then deploy it to Teams, Outlook, or a direct link. It's included in most Microsoft 365 enterprise licences.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I don't have Agent Builder on my Copilot — what do I do?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>PLACEHOLDER — add your answer here. In the meantime, speak to one of the session facilitators and they'll help you get access or suggest an alternative approach for today.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I use my real work data?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>For Agents 1 and 4 — yes. Because these agents are built inside Microsoft 365 Copilot, they only ever access your own data within your organisation's secure Microsoft tenant. Your emails, files and messages never leave your environment. For Agents 2 and 3, we've provided sample data files so you don't need to use anything confidential.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if my agent doesn't work as expected?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>That's completely normal — and it's part of the learning. The most common fix is to make your instructions more specific. If the agent gives a vague response, your prompt is probably too vague. Try adding more detail about the output format, the tone, or what it should and shouldn't do. Facilitators are on hand throughout the session to help.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How is this different from just using Copilot normally?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Standard Copilot is a general assistant — it responds to one-off questions without any persistent context. An agent is different: you configure it once with specific instructions, a persona, and access to particular data sources. It then behaves consistently every time, like a specialist tool rather than a generic chat interface. That's what makes it genuinely useful in a professional context.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I keep using my agent after today?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Yes — anything you build today lives in your Microsoft 365 environment and is yours to keep, refine and share. You can continue to iterate on your prompt, add new knowledge sources, or share the agent with colleagues. The best agents get better over time as you learn what works.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I have to pick just one agent?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>You're encouraged to focus on one and do it well — but if you finish early, absolutely explore a second. Each guide is self-contained so you can pick up any of them independently. The session facilitators can help you prioritise based on what's most relevant to your role.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULED PROMPTS -->
+<section class="scheduled-section" id="prompts">
+  <div class="scheduled-inner">
+    <div style="display:flex;justify-content:center;">
+      <span class="section-label-light">SCHEDULED PROMPTS</span>
+    </div>
+    <h2 class="scheduled-title">Keep the Momentum Going</h2>
+    <p class="scheduled-subtitle">Scheduled Prompts let you run a Copilot prompt automatically on a schedule — turning Copilot from a reactive tool into a proactive assistant.</p>
+
+    <!-- What are they -->
+    <div class="sp-explainer">
+      <div class="sp-explainer-text">
+        <h3>What are Scheduled Prompts?</h3>
+        <p>Instead of typing the same prompt every morning, you write it once, run it once, and tell Copilot to repeat it on a schedule. Copilot runs the prompt for you and posts the result back into Copilot chat — with an optional email notification. Think of it as setting a recurring alarm, but instead of waking you up it briefs you.</p>
+        <div class="sp-where">
+          <div class="sp-where-label">Available in</div>
+          <div class="sp-where-chips">
+            <span class="sp-chip">microsoft365.com/chat</span>
+            <span class="sp-chip">Copilot in Teams</span>
+            <span class="sp-chip">Copilot in Outlook</span>
+          </div>
+        </div>
+        <p class="sp-note">⚠️ Requires a Microsoft 365 Copilot licence. Up to 10 scheduled prompts at a time.</p>
+      </div>
+      <div class="sp-how">
+        <h3>How to set one up</h3>
+        <ol class="sp-steps">
+          <li><span>1</span><div><strong>Write and run your prompt once</strong> — you can only schedule it after it's been run at least once.</div></li>
+          <li><span>2</span><div><strong>Hover over the prompt</strong> you just ran and select <em>"Schedule this prompt"</em>.</div></li>
+          <li><span>3</span><div><strong>Choose your schedule</strong> — start date, frequency, number of runs, and whether you want an email notification.</div></li>
+          <li><span>4</span><div><strong>Hit Save.</strong> Copilot will run it automatically from now on.</div></li>
+        </ol>
+        <p class="sp-note">To manage your scheduled prompts: open the <strong>⋯ menu</strong> in Copilot and select <em>"Scheduled prompts"</em>. From there you can edit, pause, run immediately, or delete.</p>
+      </div>
+    </div>
+
+    <!-- Example prompts -->
+    <h3 class="sp-examples-title">Good examples to try</h3>
+    <div class="prompts-grid">
+      <div class="prompt-time-card">
+        <div class="ptc-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          🌅 Start of Day
+        </div>
+        <div class="ptc-body">
+          <p class="ptc-prompt">"Summarize today's meetings, agendas, and key documents."</p>
+          <p class="ptc-desc">Set this to run each weekday morning so you start the day already briefed — no manual inbox check needed.</p>
+        </div>
+      </div>
+      <div class="prompt-time-card">
+        <div class="ptc-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          📬 Inbox Triage
+        </div>
+        <div class="ptc-body">
+          <p class="ptc-prompt">"Summarize emails that still need my attention and flag anything urgent."</p>
+          <p class="ptc-desc">Run this daily at lunchtime to catch anything that slipped through your morning review.</p>
+        </div>
+      </div>
+      <div class="prompt-time-card">
+        <div class="ptc-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          ✅ Mid-Week Follow-ups
+        </div>
+        <div class="ptc-body">
+          <p class="ptc-prompt">"Remind me what messages and tasks from earlier this week still need action."</p>
+          <p class="ptc-desc">Schedule for Wednesday afternoon — catch anything that got buried in the week's noise.</p>
+        </div>
+      </div>
+      <div class="prompt-time-card">
+        <div class="ptc-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          📝 End of Day Wrap-up
+        </div>
+        <div class="ptc-body">
+          <p class="ptc-prompt">"Summarize action items and decisions from meetings I attended today."</p>
+          <p class="ptc-desc">Set for 5pm daily. You'll finish every day with a clean list of what needs to happen next.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT FORM -->
+<section class="landing-form-section" id="submit">
+  <div class="landing-form-inner">
+    <div style="display:flex;justify-content:center;">
+      <span class="section-label">SUBMIT YOUR AGENT</span>
+    </div>
+    <h2 class="form-title">Tell Us What You Built</h2>
+    <p class="form-subtitle">Fill in the form below to log your agent and complete your self-assessment for today's session.</p>
+    <div class="landing-form-embed">
+      <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=OT154DkJbUmxKRmO3ZFv61MpEhuQjVBNulXUnHKPCvtUMlE5VUJITDdMTkJST1hQN1FWUVNTM0M3VC4u" width="100%" height="560px" frameborder="0" marginwidth="0" marginheight="0" style="border:none; max-width:100%; border-radius:8px;" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE BUILT THIS -->
+<section class="built-section" id="built">
+  <div class="built-inner">
+    <div style="display:flex;justify-content:center;">
+      <span class="section-label-light">BEHIND THE SCENES</span>
+    </div>
+    <h2 class="built-title">Wondering How We Built This?</h2>
+    <p class="built-subtitle">The website you're looking at right now is itself a demonstration of what's possible when a human with the right ideas works alongside AI. Here's how it came together.</p>
+
+    <div class="built-cards">
+      <div class="built-card">
+        <div class="built-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h4>Designed by a Human</h4>
+        <p>The session concept, the four agent ideas, the learning journey, the prompt frameworks, and the decision to make it hands-on rather than a slide deck — all of that came from a person. AI can build, but it needs someone to know what's worth building.</p>
+      </div>
+      <div class="built-card">
+        <div class="built-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h4>Built with Claude</h4>
+        <p>Every page of this website — the landing page, all four agent guides, the colour scheme, the sample data files, and the interactive elements — was written in code by Claude, Anthropic's AI. No web developers. No designers. Just a conversation.</p>
+      </div>
+      <div class="built-card">
+        <div class="built-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h4>Hosted on GitHub Pages</h4>
+        <p>When it came to publishing the site, Claude walked through every step — setting up a GitHub repository, structuring the file folders, enabling GitHub Pages, and troubleshooting along the way. No prior technical knowledge required.</p>
+      </div>
+    </div>
+
+    <div class="built-meta">
+      <p class="built-meta-text">This is the point of today's session. The technology is accessible. The question is whether you have the curiosity to pick it up — and the ideas to point it at something that matters.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDIT -->
+<section class="credit-section">
+  <div class="credit-inner">
+    <div class="credit-divider"></div>
+    <div class="credit-content">
+      <div class="credit-text">
+        <p class="credit-label">Session designed &amp; delivered by</p>
+        <p class="credit-name">Rosa Bhanley</p>
+        <p class="credit-role">Management Consulting Analyst · Accenture</p>
+        <a href="https://www.linkedin.com/in/rosa-bhanley-1a7488232/" target="_blank" class="credit-linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+      <div class="credit-accenture">
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="30" font-family="Arial" font-size="22" font-weight="700" fill="rgba(255,255,255,0.15)">accenture</text>
+          <path d="M8 32 L14 20 L20 32" stroke="rgba(161,0,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">UKI Banking Reinvented: Agentic AI</div>
   <p>An interactive education session. Pick a path and start building.</p>
 </footer>
 
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+    // Open clicked if it was closed
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+  }
+</script>
 </body>
 </html>
