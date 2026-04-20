@@ -402,6 +402,24 @@
 
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
+    .stage0-callout { background: linear-gradient(135deg, rgba(161,0,255,0.08), rgba(224,64,251,0.05)); border: 1px solid rgba(161,0,255,0.35); border-left: 4px solid #A100FF; border-radius: 0 10px 10px 0; padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 0.5rem; }
+    .stage0-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #6600cc, #A100FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage0-icon svg { width: 20px; height: 20px; stroke: #fff; }
+    .stage0-text h4 { font-size: 0.95rem; font-weight: 700; color: #A100FF; margin-bottom: 0.5rem; }
+    .stage0-text p { font-size: 0.83rem; color: #5a4a6a; line-height: 1.7; margin-bottom: 0.75rem; }
+    .stage0-text strong { color: #1a0033; }
+    .stage0-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 700; color: #A100FF; border: 1px solid rgba(161,0,255,0.3); border-radius: 6px; padding: 0.4rem 0.9rem; transition: background 0.2s, color 0.2s; margin-bottom: 0.75rem; }
+    .stage0-link:hover { background: #A100FF; color: #fff; }
+    .stage0-note { font-size: 0.78rem !important; color: #9980b0 !important; font-style: italic; margin-bottom: 0 !important; }
+
+    .stage0-dark { background: rgba(0,0,0,0.2); border-color: rgba(224,64,251,0.4); border-left-color: #e040fb; margin-bottom: 2.5rem; }
+    .stage0-dark .stage0-text h4 { color: #e040fb; }
+    .stage0-dark .stage0-text p { color: rgba(240,230,255,0.7); }
+    .stage0-dark .stage0-text strong { color: #fff; }
+    .stage0-dark .stage0-note { color: rgba(240,230,255,0.4) !important; }
+    .stage0-dark .stage0-link { color: #e040fb; border-color: rgba(224,64,251,0.35); }
+    .stage0-dark .stage0-link:hover { background: #e040fb; color: #0d0018; }
+
     .faq-item { border: 1px solid #e8e0f0; border-radius: 8px; overflow: hidden; }
 
     .faq-q { width: 100%; background: #f8f4ff; border: none; padding: 1.1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 700; color: #1a0033; cursor: pointer; text-align: left; transition: background 0.2s; }
@@ -660,6 +678,23 @@
     </div>
     <h2>Simple. Structured. Self-Paced.</h2>
     <p class="subtitle">Each agent guide is broken into clear steps you can work through at your own pace.</p>
+
+    <!-- Stage 0 -->
+    <div class="stage0-callout stage0-dark">
+      <div class="stage0-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="stage0-text">
+        <h4>Stage 0 — Before You Start</h4>
+        <p>To access Microsoft 365 Copilot and Agent Builder, you must have <strong>applied for a Copilot licence</strong> and <strong>completed the required security training</strong> through Digital Worker. If you haven't done this yet, you won't be able to see Agent Builder in your Copilot.</p>
+        <a href="https://in.accenture.com/digitalworker/toolkit/microsoft-365-copilot/" target="_blank" class="stage0-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Get set up via Digital Worker →
+        </a>
+        <p class="stage0-note">Already done this but still can't see it? Pair up with someone who has access and ask your trainer for help requesting your licence.</p>
+      </div>
+    </div>
+
     <div class="steps-grid">
       <div class="step-item">
         <div class="step-number">1</div>
@@ -690,36 +725,6 @@
     <p class="faq-subtitle">Everything you need to know before you start building.</p>
 
     <div class="faq-grid">
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need any coding experience?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a">
-          <p>Not at all. Every agent in today's session is built using Microsoft Copilot Studio — a no-code tool where you configure your agent through plain English instructions. The most important skill is being able to write a clear, specific prompt. No programming required.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What is Copilot Studio?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a">
-          <p>Copilot Studio is Microsoft's no-code platform for building custom AI agents that plug into your Microsoft 365 environment. You define what the agent knows, how it behaves, and what it can access — then deploy it to Teams, Outlook, or a direct link. It's included in most Microsoft 365 enterprise licences.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          I don't have Agent Builder on my Copilot — what do I do?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a">
-          <p>This usually means you don't have the advanced Microsoft 365 Copilot licence that's required to access Agent Builder. To get access, you'll need to request a Copilot licence through <strong>Digital Worker</strong> — your trainer can point you in the right direction on how to do that. In the meantime, don't sit idle — pair up with someone who does have access and build the agent together. You'll still get the full learning experience, and it's often more fun with two people working through it.</p>
-        </div>
-      </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
