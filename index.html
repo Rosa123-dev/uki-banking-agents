@@ -349,12 +349,66 @@
       z-index: 90;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0;
       background: rgba(13,0,24,0.88);
       border: 1px solid rgba(161,0,255,0.3);
       border-radius: 10px;
-      padding: 0.75rem 1rem;
+      overflow: hidden;
       backdrop-filter: blur(8px);
+    }
+
+    .sn-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.75rem 0.55rem 1rem;
+      border-bottom: 1px solid rgba(161,0,255,0.2);
+      gap: 1rem;
+    }
+
+    .sn-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: rgba(240,230,255,0.4);
+    }
+
+    .sn-toggle {
+      background: rgba(161,0,255,0.15);
+      border: 1px solid rgba(161,0,255,0.3);
+      border-radius: 4px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .sn-toggle:hover { background: rgba(161,0,255,0.35); }
+    .sn-toggle svg { stroke: rgba(240,230,255,0.6); transition: transform 0.25s; }
+    .sn-toggle.minimised svg { transform: rotate(180deg); }
+
+    .sn-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 0.75rem 1rem;
+      transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+      max-height: 300px;
+      opacity: 1;
+      overflow: hidden;
+    }
+
+    .sn-links.minimised {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      opacity: 0;
     }
 
     .side-nav a {
@@ -526,13 +580,21 @@
 
 <!-- SIDE NAVIGATOR -->
 <nav class="side-nav" id="sideNav">
-  <a href="#hero"><span class="sn-dot"></span><span class="sn-label">Home</span></a>
-  <a href="#agents"><span class="sn-dot"></span><span class="sn-label">Choose Your Agent</span></a>
-  <a href="#how"><span class="sn-dot"></span><span class="sn-label">How It Works</span></a>
-  <a href="#faq"><span class="sn-dot"></span><span class="sn-label">FAQs</span></a>
-  <a href="#prompts"><span class="sn-dot"></span><span class="sn-label">Scheduled Prompts</span></a>
-  <a href="#submit"><span class="sn-dot"></span><span class="sn-label">Submit Your Agent</span></a>
-  <a href="#built"><span class="sn-dot"></span><span class="sn-label">How We Built This</span></a>
+  <div class="sn-header">
+    <span class="sn-title">Page Sections</span>
+    <button class="sn-toggle" onclick="toggleSideNav()" title="Minimise">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="sn-links" id="snLinks">
+    <a href="#hero"><span class="sn-dot"></span><span class="sn-label">Home</span></a>
+    <a href="#how"><span class="sn-dot"></span><span class="sn-label">How It Works</span></a>
+    <a href="#agents"><span class="sn-dot"></span><span class="sn-label">Choose Your Agent</span></a>
+    <a href="#faq"><span class="sn-dot"></span><span class="sn-label">FAQs</span></a>
+    <a href="#prompts"><span class="sn-dot"></span><span class="sn-label">Scheduled Prompts</span></a>
+    <a href="#submit"><span class="sn-dot"></span><span class="sn-label">Submit Your Agent</span></a>
+    <a href="#built"><span class="sn-dot"></span><span class="sn-label">How We Built This</span></a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1008,6 +1070,13 @@
 </footer>
 
 <script>
+  function toggleSideNav() {
+    const links = document.getElementById('snLinks');
+    const btn = document.querySelector('.sn-toggle');
+    links.classList.toggle('minimised');
+    btn.classList.toggle('minimised');
+  }
+
   function toggleFaq(btn) {
     const answer = btn.nextElementSibling;
     const isOpen = btn.classList.contains('open');
@@ -1016,8 +1085,8 @@
   }
 
   // Scroll spy for side navigator
-  const sections = ['hero', 'agents', 'how', 'faq', 'prompts', 'submit', 'built'];
-  const navLinks = document.querySelectorAll('.side-nav a');
+  const sections = ['hero', 'how', 'agents', 'faq', 'prompts', 'submit', 'built'];
+  const navLinks = document.querySelectorAll('.sn-links a');
 
   function updateNav() {
     let current = 'hero';
